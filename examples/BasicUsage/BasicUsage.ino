@@ -1,9 +1,12 @@
 #include <WiFi.h>
 #include "MaxBot.h"
 
-const char* ssid = "login";
-const char* pass = "pass";
-const char* token = "xxxxxxxxxxxxxxxxxxxxxxxx"; // Токен из раздела Чат-боты -> Интеграция
+// ================= НАСТРОЙКИ =================
+const char* ssid = "YOUR_WIFI_SSID";
+const char* pass = "YOUR_WIFI_PASS";
+const char* token = "YOUR_MAX_BOT_TOKEN";         // Токен из раздела Чат-боты -> Интеграция
+// =============================================
+
 
 // Обычно встроенный LED на ESP32 - это GPIO 2.
 // Если на вашей плате другой пин, измените число.
