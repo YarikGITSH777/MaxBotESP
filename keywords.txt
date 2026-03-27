@@ -1,0 +1,10 @@
+```text
+MaxBot	KEYWORD1
+MaxMsg	KEYWORD2
+sendMessage	KEYWORD2
+attach	KEYWORD2
+tick	KEYWORD2
+answerCallback	KEYWORD2
+updateFirmware	KEYWORD2
+message_callback	LITERAL1
+message_created	LITERAL1
