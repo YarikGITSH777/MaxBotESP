@@ -24,20 +24,20 @@ const char* pass = "PASS";
 const char* token = "ТОКЕН_ИЗ_BOTFATHER_MAX";
 MaxBot bot(token);
 void setup() {    
-  WiFi.begin(ssid, pass);    
-  while (WiFi.status() != WL_CONNECTED) 
-  delay(500);        
-  configTime(3 * 3600, 0, "pool.ntp.org"); // Время нужно для HTTPS!        
-  bot.attach(newMsg); // Подключаем обработчик
+     WiFi.begin(ssid, pass);    
+     while (WiFi.status() != WL_CONNECTED) 
+     delay(500);        
+     configTime(3 * 3600, 0, "pool.ntp.org"); // Время нужно для HTTPS!        
+     bot.attach(newMsg); // Подключаем обработчик
 }
 void loop() {    
   bot.tick(); // Обязательный тикер в loop
 }
 // Обработчик сообщений
 void newMsg(MaxMsg& msg) {    
-  if (msg.text == "Привет") {        
-      bot.sendMessage("Привет! Я работаю на ESP32.", msg.chat_id);    
-  }
+     if (msg.text == "Привет") {        
+         bot.sendMessage("Привет! Я работаю на ESP32.", msg.chat_id);    
+     }
 }
 ````
 ## 📚 Документация
