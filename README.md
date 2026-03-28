@@ -17,7 +17,7 @@
 3. Или скопируйте папку MaxBot в C:\Users\...\Documents\Arduino\libraries\.
    
 ## 🚀 Быстрый старт
-#include <WiFi.h>
+````#include <WiFi.h>
 #include "MaxBot.h"
 const char* ssid = "NAME";
 const char* pass = "PASS";
@@ -39,8 +39,8 @@ void newMsg(MaxMsg& msg) {
       bot.sendMessage("Привет! Я работаю на ESP32.", msg.chat_id);    
   }
 }
-
-# 📚 Документация
+````
+## 📚 Документация
 Структура сообщения (MaxMsg)
 При входящем сообщении вызывается ваша функция, в которую передается структура MaxMsg:
 struct MaxMsg {
