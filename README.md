@@ -43,6 +43,7 @@ void newMsg(MaxMsg& msg) {
 ## 📚 Документация
 Структура сообщения (MaxMsg)
 При входящем сообщении вызывается ваша функция, в которую передается структура MaxMsg:
+````
 struct MaxMsg {
     int64_t chat_id;      // ID чата (куда отвечать)
     int64_t user_id;      // ID отправителя
@@ -58,3 +59,4 @@ struct MaxMsg {
     String fileUrl;       // Ссылка на скачивание файла
     String fileName;      // Имя файла
 };
+````
