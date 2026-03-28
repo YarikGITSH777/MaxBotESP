@@ -35,7 +35,8 @@ MaxBot bot(token);
 void setup() {    
      WiFi.begin(ssid, pass);    
      while (WiFi.status() != WL_CONNECTED) 
-     delay(500);        
+        delay(500);
+     }        
      configTime(3 * 3600, 0, "pool.ntp.org"); // Время нужно для HTTPS!        
      bot.attach(newMsg); // Подключаем обработчик
 }
