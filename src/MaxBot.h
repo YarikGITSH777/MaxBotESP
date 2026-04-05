@@ -4,6 +4,8 @@
 #include <Arduino.h>
 #include <WiFiClientSecure.h>
 
+
+
 struct MaxMsg {
     int64_t chat_id = 0;
     int64_t user_id = 0;
@@ -39,7 +41,7 @@ private:
     String _host = "platform-api.max.ru";
     int64_t _lastMarker = 0;
     int64_t _lastChatId = 0;
-    
+    bool _initialized = false;
     void (*_callback)(MaxMsg& msg) = nullptr;
     bool processUpdate(MaxMsg* msgOut);
     uint8_t sendPostRequest(String url, String body);
