@@ -33,6 +33,12 @@ bool MaxBot::processUpdate(MaxMsg* msgOut) {
     if (!client.connect(_host.c_str(), 443)) return false;
 
     String url = "/updates?limit=1&timeout=10";
+
+    // при первом запуске НЕ берем историю
+    if (!_initialized) {
+    url = "/updates?limit=1&timeout=1";
+    }
+
     if (_lastMarker > 0) url += "&marker=" + String(_lastMarker);
 
     client.print(String("GET ") + url + " HTTP/1.1\r\n" +
@@ -60,6 +66,14 @@ bool MaxBot::processUpdate(MaxMsg* msgOut) {
         while (start < payload.length() && isDigit(payload[start])) { numStr += payload[start]; start++; }
         if (numStr.length() > 0) _lastMarker = atoll(numStr.c_str());
     }
+
+    // ===== INIT: пропускаем старые сообщения =====
+    if (!_initialized) {
+       _initialized = true;
+       // просто обновили marker и ВЫХОДИМ
+       return false;
+    }
+
 
     // ==========================================
     //    1. ОБЫЧНОЕ СООБЩЕНИЕ + ФАЙЛЫ
